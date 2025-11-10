@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Vidita 🤍</title>
+<style>
+body {
+  margin: 0;
+  background-color: #0a0014;
+  font-family: 'Brush Script MT', cursive;
+  color: #d4b3ff;
+  text-align: center;
+}
+
+/* Corazones flotantes */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: float 10s infinite linear;
+  opacity: 0.6;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(1); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+h1 { font-size: 50px; margin-top: 100px; }
+
+.lirios { width: 200px; margin-top: 20px; }
+
+p { font-size: 18px; max-width: 400px; margin: 20px auto; }
+
+/* Carta hacia abajo sin límite de altura */
+.carta {
+  display: none; /* Oculta al inicio */
+  max-width: 600px;
+  width: 90%;
+  margin: 20px auto 50px auto;
+  background-color: rgba(255,255,255,0.1);
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+  transition: all 0.8s ease; 
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.carta.mostrar {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<div class="hearts"></div>
+
+<h1>Mi vidita 🤍</h1>
+<img src="https://floristel.cl/1422-large_default/ramo-de-flores-lilium-blancos.jpg" alt="Lirios" class="lirios">
+
+<p>Mi vida hoy es un día muy especial para ti 🤍✨ y quiero acompañarte aunque no esté junto a ti en este momento 🤍✨.</p>
+
+<!-- Carta hacia abajo -->
+<div id="carta" class="carta">
+Mi amor, quiero desearte toda la suerte del mundo en esta nueva etapa de tu vida. Sé que estás por comenzar algo muy importante, y quiero que sepas que me siento tan feliz por ti, por todo lo que estás logrando y por todo lo que aún te falta por vivir. La universidad es un nuevo camino lleno de oportunidades, aprendizajes y momentos que te van a marcar, y estoy segura de que vas a brillar como siempre lo haces.
+
+Eres una persona increíblemente dedicada, inteligente, y con un corazón enorme. Todo lo que haces lo haces con pasión, y por eso sé que cada esfuerzo valdrá la pena. Habrá días buenos y días difíciles, pero quiero que nunca olvides lo capaz que eres y todo lo que ya has superado. Cada paso, cada clase, cada logro será parte de tu crecimiento, y yo voy a estar ahí para acompañarte, apoyarte y recordarte siempre lo mucho que vales.
+
+Me siento tan orgullosa de ti, de todo lo que has alcanzado y de la manera en que sigues adelante sin rendirte. Ver cómo vas cumpliendo tus metas me llena de alegría, porque sé que detrás de todo hay esfuerzo, ganas y un corazón enorme. Estoy segura de que esta nueva etapa te va a traer cosas maravillosas, personas nuevas, experiencias únicas y muchos motivos más para sonreír.
+
+Quiero que sepas que creo en ti con todo mi corazón. Pase lo que pase, siempre voy a estar aquí, alentándote y admirando la persona tan increíble que eres. Te amo con todo mi ser, y te deseo toda la suerte, la fuerza y la felicidad del mundo en esta nueva etapa.  
+Ve con todo, mi vida, que el mundo necesita ver todo lo bonito que llevas dentro
+</div>
+
+<script>
+  // Corazones flotantes
+  const heartsContainer = document.querySelector('.hearts');
+  const hearts = ["🤍","✨"];
+  for (let i=0; i<25; i++){
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random()*100+'vw';
+    heart.style.animationDuration = 8 + Math.random()*5 + 's';
+    heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
+    heartsContainer.appendChild(heart);
+  }
+
+  // Función para mostrar carta
+  function mostrarCarta() {
+    const carta = document.getElementById("carta");
+    carta.classList.add("mostrar");
+    carta.scrollIntoView({behavior: "smooth"});
+  }
+
+  // Carta aparece automáticamente
+  setTimeout(mostrarCarta, 1000);
+</script>
+</body>
+</html>
